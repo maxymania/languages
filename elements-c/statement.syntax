@@ -1,0 +1,15 @@
+
+
+mayex = ~( expr? );
+
+stmblock = ~("block" "{"#- statement* #verbose "}" #- #mute ) #precise ;
+
+statement =
+	~("vardecl" type Ident ("="#- expr)? ";" #-)|
+	~("expr" expr ";" #-) |
+	~("forlp" "for"#- "("#- mayex ";"#- mayex ";"#- mayex ")"#- statement) |
+	~("ifs" "if"#- "("#- expr ")"#- statement ) |
+	~("whlp" "while"#- "("#- expr ")"#- statement ) |
+	~("dowh" "do" #- statement "while"#- "("#- expr ")"#- ";"#- ) |
+	stmblock
+;

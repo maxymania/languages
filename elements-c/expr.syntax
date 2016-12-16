@@ -1,0 +1,28 @@
+
+exprlist = ~( (expr (","#- expr)* )? );
+
+expr1 =
+	~("call" Ident "(" #- exprlist ")" #- ) |
+	~("assign" Ident "="#- expr) |
+	~("var" Ident ) |
+	~("lit" String | Char | Int | Float ) |
+	~("cast" "("#- type ")"#- expr1 ) |
+	"("#- expr ")"#- |
+	~("deref" "*" #- expr1 ) |
+	~("ref" "&" #- expr1 ) |
+	~("unot" "!" #- expr1 ) |
+	~("neg" "-" #- expr1 )
+;
+
+c_op =  "+"|"-"|"*"|"/"|"%"| "&" "&"? | "|" "|"? |
+	"<" "<" | ">" ">" | ("<"|">") "="? | ("="|"!") "="
+;
+
+exprtrail =
+	~("op" ~(c_op) expr1) |
+	~("lkup" "[" #- expr "]" #- )
+;
+
+expr  = ~("chain" expr1 exprtrail*);
+
+

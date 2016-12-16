@@ -1,0 +1,6 @@
+#!/home/simon/devel/go/language/s2sc
+{
+	"BasePath":"/home/simon/devel/languages/elements",
+	"Parser":"parser.xml",
+	"Compiler":"compiler.xml"
+}

@@ -1,0 +1,8 @@
+<Compiler>
+	<BasePath>/home/simon/devel/languages/elements</BasePath>
+	<Script>base.lua</Script>
+	<Script>expr.lua</Script>
+	<Script>statement.lua</Script>
+	<Script>process.lua</Script>
+</Compiler>
+

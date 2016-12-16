@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main (int v_argc,const char* const * v_argv) {
+int v_i = v_argc;
+for(v_i = 0;(v_i < v_argc);v_i = (v_i + 1))
+printf("Hello %s!\n",v_argv[v_i]);
+while(!v_argc)
+printf("Hello World!",(const char*)(int)(-v_i));
+}
+
+

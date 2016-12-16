@@ -1,0 +1,8 @@
+<Parser>
+	<BasePath>/home/simon/devel/languages/elements</BasePath>
+	<Syntaxfile>expr.syntax</Syntaxfile>
+	<Syntaxfile>statement.syntax</Syntaxfile>
+	<Syntaxfile>code.syntax</Syntaxfile>
+	<Start>main</Start>
+</Parser>
+

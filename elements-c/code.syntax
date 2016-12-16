@@ -1,0 +1,21 @@
+
+typepost = ~("ptr" "*")| ~("const_ptr" "const" "*");
+
+type = ~("type" ("struct"|"union")? Ident typepost * );
+
+vardecl = ~("vardecl" type Ident ";");
+
+funcarg = ~( type Ident);
+
+funargs = ~( (funcarg (","#- funcarg)* )? );
+
+fundecl = ~("fundecl" type Ident "(" #- funargs ")" #- stmblock #E ) #precise;
+
+
+import = ~("import" "import" #- String ";" #-) | ~("include" "include" #- String ";" #-);
+
+decl = vardecl|import|fundecl ;
+
+main = ( decl* #verbose EOF #- #E ) #precise;
+
+
